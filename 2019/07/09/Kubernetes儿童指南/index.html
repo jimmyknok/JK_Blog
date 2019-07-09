@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="原文地址：The Illustrated Children’s Guide to Kubernetes 原文作者：CLOUD NATIVE COMPUTING FOUNDATION 译文出自：掘金翻译计划   Kubernetes指南插图  很久很久以前，有一个叫 Phippy 的应用程序。她是一个简单的应用程序，由 PHP 编写且只有一个页面。她住在一个需要和其他可怕的应用程序分享环境的主机">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes儿童指南">
+<meta property="og:url" content="http://yoursite.com/2019/07/09/Kubernetes儿童指南/index.html">
+<meta property="og:site_name" content="JK&#39;S HOME">
+<meta property="og:description" content="原文地址：The Illustrated Children’s Guide to Kubernetes 原文作者：CLOUD NATIVE COMPUTING FOUNDATION 译文出自：掘金翻译计划   Kubernetes指南插图  很久很久以前，有一个叫 Phippy 的应用程序。她是一个简单的应用程序，由 PHP 编写且只有一个页面。她住在一个需要和其他可怕的应用程序分享环境的主机">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/7/2/16bb21d63a3455bb?imageslim">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/6/26/16b925ffafc5bd6a?imageslim">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/6/26/16b925ff7204d87c?imageslim">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/6/26/16b925ff5fe91ecd?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/6/26/16b92601976127d9?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/6/26/16b92601db632f60?imageslim">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/6/26/16b926023ec24e3b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/6/26/16b92602693e3902?imageslim">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/6/26/16b926030ac1e419?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/6/26/16b926034d6e88e3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/6/26/16b9260371161fd8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/6/26/16b9260412bc072c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/7/2/16bb21d6d278d8cd?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/7/2/16bb21d6ccc1d7d3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/7/2/16bb21d6c7d52e54?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/7/2/16bb21d6bd92157c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/7/2/16bb21d912c47d80?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/7/2/16bb21d7d7f57183?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:updated_time" content="2019-07-09T05:05:47.934Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kubernetes儿童指南">
+<meta name="twitter:description" content="原文地址：The Illustrated Children’s Guide to Kubernetes 原文作者：CLOUD NATIVE COMPUTING FOUNDATION 译文出自：掘金翻译计划   Kubernetes指南插图  很久很久以前，有一个叫 Phippy 的应用程序。她是一个简单的应用程序，由 PHP 编写且只有一个页面。她住在一个需要和其他可怕的应用程序分享环境的主机">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/7/2/16bb21d63a3455bb?imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/07/09/Kubernetes儿童指南/">
+
+
+
+
+
+  <title>Kubernetes儿童指南 | JK'S HOME</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JK'S HOME</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">MAKE IT HAPPEN</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/09/Kubernetes儿童指南/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jiayi">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JK'S HOME">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Kubernetes儿童指南</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-09T12:41:27+08:00">
+                2019-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<ul>
+<li>原文地址：<a href="https://link.juejin.im/?target=https%3A%2F%2Fwww.cncf.io%2Fthe-childrens-illustrated-guide-to-kubernetes%2F" target="_blank" rel="noopener">The Illustrated Children’s Guide to Kubernetes</a></li>
+<li>原文作者：<a href="https://link.juejin.im/?target=https%3A%2F%2Fwww.cncf.io" target="_blank" rel="noopener">CLOUD NATIVE COMPUTING FOUNDATION</a></li>
+<li>译文出自：<a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fxitu%2Fgold-miner" target="_blank" rel="noopener">掘金翻译计划</a></li>
+</ul>
+</blockquote>
+<h1 id="Kubernetes指南插图"><a href="#Kubernetes指南插图" class="headerlink" title="Kubernetes指南插图"></a>Kubernetes指南插图</h1><p><img src="https://user-gold-cdn.xitu.io/2019/7/2/16bb21d63a3455bb?imageslim" alt></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b925ffafc5bd6a?imageslim" alt></p>
+<p>很久很久以前，有一个叫 Phippy 的应用程序。她是一个简单的应用程序，由 PHP 编写且只有一个页面。她住在一个需要和其他可怕的应用程序分享环境的主机中，她不认识这些应用程序并且不愿意和他们来往。她希望她能拥有一个属于自己的环境：只有她自己和她可以称之为家的 Web 服务器。</p>
+<a id="more"></a>
+
+<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b925ff7204d87c?imageslim" alt></p>
+<p>每个应用程序都有个运行所依赖的环境。对于 PHP 应用程序来说，这个环境可能包括 Web 服务器，一个可读文件系统和 PHP 引擎本身。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b925ff5fe91ecd?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>有一天，一只善良的鲸鱼出现了。他建议小 Phippy 住在容器里，这样可能会更快乐。所以应用程序 Phippy 迁移到了容器中。这个容器很棒，但是……它有点像一个漂浮在大海中央的豪华起居室。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b92601976127d9?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>容器提供了一个独立的环境，应用程序可以在这个环境中运行。但是这些孤立的容器常常需要被管理并与外面的世界连接。对于孤立的容器而言，共享文件系统、网络通信、调度、负载均衡和分发都是要面对的挑战。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b92601db632f60?imageslim" alt></p>
+<p>鲸鱼耸了耸肩。“对不起，孩子。”他说着，消失在海面下。就在 Phippy 甚至开始绝望时，一位驾驶着巨轮的船长出现在海平线上。这艘船由几十个绑在一起的木筏组成，但从外面来看，它就像一艘巨轮。</p>
+<p>“你好呀，这位 PHP 应用程序朋友。我是 Kube 船长。”睿智的老船长说。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b926023ec24e3b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>“Kubernetes” 在希腊语中是船长的意思。我们可以从这个单词中得到 <strong>Cybernetic</strong> 和 <strong>Gubernatorial</strong> 这两个词组。Kubernetes 项目专注于构建一个健壮的平台，用于在生产环境中运行数千个容器。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b92602693e3902?imageslim" alt></p>
+<p>“我是 Phippy。”小应用程序说。</p>
+<p>“很高兴认识你。”船长一边说，一边在她身上贴上了一张标有姓名的标签。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b926030ac1e419?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>Kubernetes 使用标签作为“名牌”来标识事物。它可以根据这些标签进行查询。标签是开放性的：你可以用他们来表示角色、稳定性或其他重要的属性。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b926034d6e88e3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>船长建议应用程序把她的容器搬到船上的一个船舱中。Phippy 很高兴地把她的容器搬到 Kube 船长巨轮的船舱内。Phippy 觉得这里像家一样。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b9260371161fd8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>在 Kubernetes 中，Pod 代表一个可运行的工作单元。通常，你会在 Pod 中运行一个容器。但是对于一些容器紧密耦合的情况，你可以选择在同一个 Pod 中运行多个容器。Kubernetes 负责将你的 Pod 和网络以及 Kubernetes 的其余环境相连。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b9260412bc072c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>Phippy 有一些不同寻常的兴趣，她很喜欢遗传学和绵羊。所以她问船长：“如果我想克隆我自己，是否可以根据需求克隆任意次数呢？”</p>
+<p>“这很容易。”船长说。船长把 Phippy 介绍给了 Replication Controller。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/7/2/16bb21d6d278d8cd?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>Replication Controller 提供一种管理任意数量 Pod 的方法。一个 Replication Controller 包含一个 Pod 模板，该模板可以被复制任意次数。通过 Replication Controller，Kubernetes 将管理 Pod 的生命周期，包括伸缩、滚动更新和监控。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/7/2/16bb21d6ccc1d7d3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>无数个日夜，小应用程序在她的船舱中与她的复制品相处十分愉快。但与自己为伍并没有所说的那么好……即使你拥有 N 个自己的克隆体。</p>
+<p>Kube 船长慈祥地笑了笑：“我正好有一样东西。”</p>
+<p>他刚开口，在 Phippy 的 Replication Controller 和船的其他部分之间打开了一条隧道。Kube 船长笑着说：“即使你的复制品来了又去，这条隧道始终会留在这里，你可以通过它发现其他 Pod，其他 Pod 也可以发现你！</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/7/2/16bb21d6c7d52e54?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>服务告知 Kubernetes 环境的其余部分（包括其他 Pod 和 Replication Controller）你的应用程序包含了哪些服务，当 Pod 来来往往，服务的 IP 地址和端口始终保持不变。其他应用程序可以通过 Kurbenetes 服务发现找到你的服务。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/7/2/16bb21d6bd92157c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>多亏了这些服务，Phippy 开始探索船的其他部分。不久之后，Phippy 遇到了 Goldie。他们成了最好的朋友。有一天，Goldie 做了一件不同寻常的事。她送给 Phippy 一件礼物。Phippy 看了礼物一眼，悲伤的泪水夺眶而出。</p>
+<p>“你为什么这么伤心呢？”Goldie 问道。</p>
+<p>“我喜欢这个礼物，但我没有地方可以放它！”Phippy 抽噎道。</p>
+<p>但 Goldie 知道该怎么做。“为什么不把它放入卷中呢？”</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/7/2/16bb21d912c47d80?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>卷表示容器可以访问和存储信息的位置。对于应用程序，卷显示为本地文件系统的一部分。但卷可以由本地存储、Ceph、Gluster、持久性块存储，以及其他存储后端支持。</p>
+<p>Phippy 喜欢在 Kube 船长的船上生活，她很享受来自新朋友的陪伴（Goldie 的每个克隆人都同样令人愉悦）。但是，当她回想起在可怕的主机度过的日子，她想知道她是否也可以拥有一点自己的隐私。</p>
+<p>“这听起来像是你所需要的，”Kube 船长说，“这是一个命名空间。”</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/7/2/16bb21d7d7f57183?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>命名空间是 Kubernetes 内部的分组机制。服务、Pod、Replication Controller 和卷可以在命名空间内部轻松协作，但命名空间提供了与集群其他部分一定程度的隔离。</p>
+<p>Phippy 与她的新朋友一起乘坐 Kube 船长的巨轮航行于大海之上。她经历了许多伟大的冒险，但最重要的是，Phippy 找到了自己的家。</p>
+<p>所以 Phippy 从此过上了幸福的生活。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/03/接口测试流程扫盲/" rel="next" title="接口测试流程扫盲">
+                <i class="fa fa-chevron-left"></i> 接口测试流程扫盲
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Jiayi</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Kubernetes指南插图"><span class="nav-number">1.</span> <span class="nav-text">Kubernetes指南插图</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiayi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
